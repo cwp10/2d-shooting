@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ladybug
+  m_Controller: {fileID: 9100000, guid: 723b1ab6fb3af429e90a4a4d09de2f0b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1c84b8f44738447ed9907e1e1a8813cb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6645ea5f4cfce419299d68e9d08e1be4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e1ea6f46d6f774e5e85294e855775bac, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 373108146f1eb4dcea76f54a914a38d9, type: 2}
