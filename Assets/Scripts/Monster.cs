@@ -17,4 +17,12 @@ public class Monster : MonoBehaviour
 	{
 		_rigidbody.velocity = Vector2.down * speed * Time.deltaTime;
 	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Bullet")
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }

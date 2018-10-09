@@ -26,4 +26,12 @@ public class Bullet : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Monster")
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }
