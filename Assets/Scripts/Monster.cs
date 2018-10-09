@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
 	protected Animator _animator = null;
 	protected State _state = State.Idle;
 	
+	private Vector2 _deadZone = Vector2.zero;
 	private float _health = 0.0f;
 
 	public float speed = 50.0f;
@@ -24,6 +25,9 @@ public class Monster : MonoBehaviour
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator>();
+
+		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		_deadZone = cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 	}
 
 	private void OnEnable()
@@ -41,6 +45,11 @@ public class Monster : MonoBehaviour
 		else
 		{
 			Stop();
+		}
+
+		if(this.transform.position.y < -_deadZone.y)
+		{
+			Destroy(this.gameObject);
 		}
 	}
 
