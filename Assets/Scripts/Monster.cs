@@ -10,9 +10,9 @@ public class Monster : MonoBehaviour
 		Hit,
 	}
 
-	private Rigidbody2D _rigidbody = null;
-	private Animator _animator = null;
-	private State _state = State.Idle;
+	protected Rigidbody2D _rigidbody = null;
+	protected Animator _animator = null;
+	protected State _state = State.Idle;
 
 	public float speed = 50.0f;
 
@@ -31,11 +31,11 @@ public class Monster : MonoBehaviour
 	{
 		if(_state == State.Idle)
 		{
-			_rigidbody.velocity = Vector2.down * speed * Time.deltaTime;
+			Move();
 		}
 		else
 		{
-			_rigidbody.velocity = Vector2.zero;
+			Stop();
 		}
 	}
 
@@ -45,7 +45,7 @@ public class Monster : MonoBehaviour
 		{
 			_state = State.Hit;
 			_animator.SetTrigger("Hit");
-			
+
 			Invoke("Dead", 1.0f);
 		}
 	}
@@ -54,4 +54,11 @@ public class Monster : MonoBehaviour
 	{
 		Destroy(this.gameObject);
 	}
+
+	private void Stop()
+	{
+		_rigidbody.velocity = Vector2.zero;
+	}
+
+	protected virtual void Move() {}
 }
