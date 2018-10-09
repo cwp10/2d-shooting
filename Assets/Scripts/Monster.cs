@@ -8,13 +8,17 @@ public class Monster : MonoBehaviour
 	{
 		Idle,
 		Hit,
+		Dead,
 	}
 
 	protected Rigidbody2D _rigidbody = null;
 	protected Animator _animator = null;
 	protected State _state = State.Idle;
+	
+	private float _health = 0.0f;
 
 	public float speed = 50.0f;
+	public float maxHealth = 10.0f;
 
 	private void Awake()
 	{
@@ -25,11 +29,12 @@ public class Monster : MonoBehaviour
 	private void OnEnable()
 	{
 		_state = State.Idle;
+		_health = maxHealth;
 	}
 
 	private void Update()
 	{
-		if(_state == State.Idle)
+		if(_state != State.Dead)
 		{
 			Move();
 		}
@@ -41,12 +46,18 @@ public class Monster : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Bullet" && _state == State.Idle)
+		if(other.tag == "Bullet" && _state != State.Dead)
 		{
 			_state = State.Hit;
 			_animator.SetTrigger("Hit");
 
-			Invoke("Dead", 1.0f);
+			_health -= 2.0f;
+
+			if(_health <= 0)
+			{
+				_state = State.Dead;
+				Invoke("Dead", 0.3f);
+			}
 		}
 	}
 
