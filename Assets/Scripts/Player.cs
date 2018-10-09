@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour 
 {
+	[SerializeField] private GameObject bulletPrefab_ = null;
+	[SerializeField] private Transform bullerSpawnPoint_ = null;
 	private const float fPixelPerUnit = 100.0f;
-	
+
 	private Camera _camera = null;
 	private Rigidbody2D _rigidbody = null;
 	private Vector2 _bodySize = Vector2.zero;
-
+	private float _interval = 0;
+	
 	public float speed = 200.0f;
+	public float bulletInterval = 0.1f;
 
 	private void Awake()
 	{
@@ -29,6 +33,13 @@ public class Player : MonoBehaviour
 	private void Update()
 	{
 		Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+		_interval += Time.deltaTime;
+
+		if(Input.GetKey(KeyCode.Space))
+		{
+			CreateBullet();
+		}
 	}
 
 	private void Move(float horizontal, float vertical)
@@ -42,5 +53,14 @@ public class Player : MonoBehaviour
 		float posY = Mathf.Clamp(pos.y, _bodySize.y * 0.5f, Screen.height - _bodySize.y * 0.5f);
 		
 		_rigidbody.position = _camera.ScreenToWorldPoint(new Vector2(posX, posY));
+	}
+
+	private void CreateBullet()
+	{
+		if(_interval > bulletInterval)
+		{
+			_interval = 0.0f;
+			Instantiate(bulletPrefab_, bullerSpawnPoint_.position, Quaternion.identity);
+		}
 	}
 }
