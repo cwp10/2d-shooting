@@ -1,0 +1,15 @@
+._*
+.DS_Store
+Desktop.ini
+
+/Library/
+/Temp/
+/obj/
+/*.csproj
+/*.sln
+/*.suo
+/.vscode
+/.vs
+
+VSCode**
+UnityVS**
