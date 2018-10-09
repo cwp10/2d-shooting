@@ -302,8 +302,8 @@ MonoBehaviour:
   monsterPrefabs:
   - {fileID: 1375896625827210, guid: edb945b11ce6e439b9cbf0900b7a17e5, type: 2}
   - {fileID: 1126074690296166, guid: 62a0d4bd7c237405593087d541914b00, type: 2}
-  maxMonsterCount: 10
-  createTime: 1
+  maxMonsterCount: 30
+  createTime: 0.5
 --- !u!4 &1589205210
 Transform:
   m_ObjectHideFlags: 0

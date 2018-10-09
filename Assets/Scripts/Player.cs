@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	
 	public float speed = 200.0f;
 	public float bulletInterval = 0.1f;
+	public float health = 100.0f;
 
 	private void Awake()
 	{
@@ -22,6 +23,11 @@ public class Player : MonoBehaviour
 		_rigidbody = GetComponent<Rigidbody2D>();
 
 		_bodySize = CalculateBodySize();
+	}
+
+	private void Start()
+	{
+		_rigidbody.position = _camera.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, -Screen.height + _bodySize.y * 0.5f));
 	}
 
 	private Vector2 CalculateBodySize()
@@ -61,6 +67,19 @@ public class Player : MonoBehaviour
 		{
 			_interval = 0.0f;
 			Instantiate(bulletPrefab_, bullerSpawnPoint_.position, Quaternion.identity);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Monster")
+		{
+			health -= 10f;
+
+			if(health <= 0)
+			{
+				Debug.Log("GameEnd!!");
+			}
 		}
 	}
 }
