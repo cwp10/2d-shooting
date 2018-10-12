@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
 	[SerializeField] private GameObject bulletPrefab_ = null;
 	[SerializeField] private Transform bullerSpawnPoint_ = null;
+	[SerializeField] private GameObject effect_ = null;
+
 	private const float fPixelPerUnit = 100.0f;
 
 	private Camera _camera = null;
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
 	{
 		if(other.tag == "Monster")
 		{
+			Instantiate(effect_, this.transform.position, Quaternion.identity);
 			health -= 10f;
 
 			if(health <= 0)
