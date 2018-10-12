@@ -9,34 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1126074690296166}
+  m_RootGameObject: {fileID: 1233379759973182}
   m_IsPrefabAsset: 1
---- !u!1 &1126074690296166
+--- !u!1 &1233379759973182
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4923705535705398}
-  - component: {fileID: 212794779414844660}
-  - component: {fileID: 95230699626283266}
-  - component: {fileID: 58361644331384498}
-  - component: {fileID: 50861969730094926}
-  - component: {fileID: 114599649698226858}
+  - component: {fileID: 4608767661539996}
+  - component: {fileID: 212764296044045882}
+  - component: {fileID: 95803841725720922}
+  - component: {fileID: 114705311924558270}
   m_Layer: 0
-  m_Name: Ladybug
-  m_TagString: Monster
+  m_Name: MonsterEffect
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4923705535705398
+--- !u!4 &4608767661539996
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
+  m_GameObject: {fileID: 1233379759973182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -44,51 +42,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50861969730094926
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &58361644331384498
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.38
---- !u!95 &95230699626283266
+--- !u!95 &95803841725720922
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
+  m_GameObject: {fileID: 1233379759973182}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: e8c54250bc30f4dffb56f27e1fb88681, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0657d0b86e3174b16b6c39304e7fd196, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -97,26 +60,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114599649698226858
+--- !u!114 &114705311924558270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
+  m_GameObject: {fileID: 1233379759973182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89ef164099c043f0ac36f3ad60db0a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0da00ef88abc44763bb43750d04fecee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect_: {fileID: 1233379759973182, guid: 2e2a45eedb9ca46fc961ec56d45598a7, type: 2}
-  speed: 100
-  maxHealth: 10
---- !u!212 &212794779414844660
+--- !u!212 &212764296044045882
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126074690296166}
+  m_GameObject: {fileID: 1233379759973182}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -143,15 +103,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 618301445
-  m_SortingLayer: 2
+  m_SortingLayerID: 2067892537
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b33a708ecb2fa4eb3b911035a1b43a54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d8fc6dc424104d35827f32e42bd5dbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.76, y: 0.76}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

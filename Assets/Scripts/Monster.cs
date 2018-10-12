@@ -11,6 +11,8 @@ public class Monster : MonoBehaviour
 		Dead,
 	}
 
+	[SerializeField] protected GameObject effect_ = null;
+
 	protected Rigidbody2D _rigidbody = null;
 	protected Animator _animator = null;
 	protected State _state = State.Idle;
@@ -72,6 +74,7 @@ public class Monster : MonoBehaviour
 
 	private void Dead()
 	{
+		Instantiate(effect_, this.transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}
 
