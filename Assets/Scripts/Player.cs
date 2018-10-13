@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		_rigidbody.position = _camera.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, -Screen.height + _bodySize.y * 0.5f));
+		_rigidbody.position = new Vector2(_rigidbody.position.x, -4.0f);
 		_health = maxHealth;
 	}
 
