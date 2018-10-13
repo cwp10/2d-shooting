@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] private GameObject[] monsterPrefabs = null;
 	[SerializeField] private Image playerHealthbar_ = null;
+	[SerializeField] private Text textScoreCount_ = null;
 	
 	private bool _isGameOver = false;
 	private Vector2 screenToWorldPoint = Vector2.zero;
+	private int _monsterKillCount = 0;
 
 	public int maxMonsterCount = 10;
 	public float createTime = 1f;
@@ -46,5 +48,11 @@ public class GameManager : MonoBehaviour
 	public void SetPlayerHealth(float value)
 	{
 		playerHealthbar_.fillAmount = value;
+	}
+
+	public void SetMonsterKill()
+	{
+		_monsterKillCount += 1;
+		textScoreCount_.text = string.Format("{0}", _monsterKillCount);
 	}
 }

@@ -17,6 +17,7 @@ public class Monster : MonoBehaviour
 	protected Animator _animator = null;
 	protected State _state = State.Idle;
 	
+	private GameManager _gameManager = null;
 	private Vector2 _deadZone = Vector2.zero;
 	private float _health = 0.0f;
 
@@ -27,6 +28,7 @@ public class Monster : MonoBehaviour
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator>();
+		_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		_deadZone = cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
@@ -74,6 +76,7 @@ public class Monster : MonoBehaviour
 
 	private void Dead()
 	{
+		_gameManager.SetMonsterKill();
 		Instantiate(effect_, this.transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}
