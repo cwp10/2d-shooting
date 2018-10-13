@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour 
 {
+	[SerializeField] private GameManager gameManager_ = null;
 	[SerializeField] private GameObject bulletPrefab_ = null;
 	[SerializeField] private Transform bullerSpawnPoint_ = null;
 	[SerializeField] private GameObject effect_ = null;
@@ -14,10 +15,12 @@ public class Player : MonoBehaviour
 	private Rigidbody2D _rigidbody = null;
 	private Vector2 _bodySize = Vector2.zero;
 	private float _interval = 0;
+	private float _health = 100.0f;
 	
 	public float speed = 200.0f;
 	public float bulletInterval = 0.1f;
-	public float health = 100.0f;
+	public float maxHealth = 100.0f;
+	
 
 	private void Awake()
 	{
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		_rigidbody.position = _camera.ScreenToWorldPoint(new Vector2(Screen.width * 0.5f, -Screen.height + _bodySize.y * 0.5f));
+		_health = maxHealth;
 	}
 
 	private Vector2 CalculateBodySize()
@@ -77,10 +81,16 @@ public class Player : MonoBehaviour
 		if(other.tag == "Monster")
 		{
 			Instantiate(effect_, this.transform.position, Quaternion.identity);
-			health -= 10f;
-
-			if(health <= 0)
+			_health -= 10f;
+			
+			if(_health > 0)
 			{
+				float value = _health / maxHealth;
+				gameManager_.SetPlayerHealth(value);
+			}
+			else
+			{
+				gameManager_.SetPlayerHealth(0);
 				Debug.Log("GameEnd!!");
 			}
 		}

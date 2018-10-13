@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour 
 {
 	[SerializeField] private GameObject[] monsterPrefabs = null;
+	[SerializeField] private Image playerHealthbar_ = null;
 	
 	private bool _isGameOver = false;
 	private Vector2 screenToWorldPoint = Vector2.zero;
@@ -39,5 +41,10 @@ public class GameManager : MonoBehaviour
 				yield return null;
 			}
 		}
+	}
+
+	public void SetPlayerHealth(float value)
+	{
+		playerHealthbar_.fillAmount = value;
 	}
 }
