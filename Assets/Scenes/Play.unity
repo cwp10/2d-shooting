@@ -745,8 +745,8 @@ MonoBehaviour:
   playerHealthbar_: {fileID: 228824157}
   textScoreCount_: {fileID: 1761815170}
   backgroundMusic_: {fileID: 8300000, guid: fd5b05a3c24af49b89950d970dffc92b, type: 3}
-  maxMonsterCount: 30
-  createTime: 0.5
+  maxMonsterCount: 50
+  createTime: 0.3
 --- !u!4 &1589205210
 Transform:
   m_ObjectHideFlags: 0

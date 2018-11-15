@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	private bool _isGameOver = false;
 	private Vector2 screenToWorldPoint = Vector2.zero;
 	private int _monsterKillCount = 0;
+	private float gamePlayTime_ = 0.0f;
 
 	public int maxMonsterCount = 10;
 	public float createTime = 1f;
@@ -24,6 +25,14 @@ public class GameManager : MonoBehaviour
 		screenToWorldPoint = cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 		SoundManager.instance.PlayMusic(backgroundMusic_);
 		StartCoroutine(CreateMonster());
+	}
+
+	private void Update()
+	{
+		gamePlayTime_ += Time.deltaTime;
+
+		maxMonsterCount = (int)(gamePlayTime_ / 2) + 10;
+		Debug.Log(maxMonsterCount);
 	}
 
 	private IEnumerator CreateMonster()
