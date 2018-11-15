@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour 
 {
@@ -54,5 +55,15 @@ public class GameManager : MonoBehaviour
 	{
 		_monsterKillCount += 1;
 		textScoreCount_.text = string.Format("{0}", _monsterKillCount);
+	}
+
+	public void GoToTitle()
+	{
+		int score = PlayerPrefs.GetInt("SCORE");
+		if(score < _monsterKillCount)
+		{
+			PlayerPrefs.SetInt("SCORE", _monsterKillCount);
+		}
+		SceneManager.LoadScene("Title");
 	}
 }

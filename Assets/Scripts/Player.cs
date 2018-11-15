@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
 			else
 			{
 				gameManager_.SetPlayerHealth(0);
-				Debug.Log("GameEnd!!");
+				gameManager_.GoToTitle();
 			}
 		}
 	}
