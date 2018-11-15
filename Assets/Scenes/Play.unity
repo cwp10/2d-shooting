@@ -371,6 +371,8 @@ MonoBehaviour:
     type: 2}
   bullerSpawnPoint_: {fileID: 2009506448}
   effect_: {fileID: 1321498760718836, guid: 0a85134b8153b40a297df7128585b4b4, type: 2}
+  bulletSfx_: {fileID: 8300000, guid: f68b8ca9cb62c4104a6f8aa522f40254, type: 3}
+  damageSfx_: {fileID: 8300000, guid: 722031a7968fc48fab22ecfc4d4c76eb, type: 3}
   speed: 200
   bulletInterval: 0.1
   maxHealth: 100
@@ -742,6 +744,7 @@ MonoBehaviour:
   - {fileID: 1126074690296166, guid: 62a0d4bd7c237405593087d541914b00, type: 2}
   playerHealthbar_: {fileID: 228824157}
   textScoreCount_: {fileID: 1761815170}
+  backgroundMusic_: {fileID: 8300000, guid: fd5b05a3c24af49b89950d970dffc92b, type: 3}
   maxMonsterCount: 30
   createTime: 0.5
 --- !u!4 &1589205210

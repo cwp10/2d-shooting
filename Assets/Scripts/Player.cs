@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private GameObject bulletPrefab_ = null;
 	[SerializeField] private Transform bullerSpawnPoint_ = null;
 	[SerializeField] private GameObject effect_ = null;
+	[SerializeField] private AudioClip bulletSfx_ = null;
+	[SerializeField] private AudioClip damageSfx_ = null;
 
 	private const float fPixelPerUnit = 100.0f;
 
@@ -91,6 +93,7 @@ public class Player : MonoBehaviour
 		{
 			_interval = 0.0f;
 			Instantiate(bulletPrefab_, bullerSpawnPoint_.position, Quaternion.identity);
+			SoundManager.instance.PlaySFX(bulletSfx_);
 		}
 	}
 
@@ -99,6 +102,7 @@ public class Player : MonoBehaviour
 		if(other.tag == "Monster")
 		{
 			Instantiate(effect_, this.transform.position, Quaternion.identity);
+			SoundManager.instance.PlaySFX(damageSfx_);
 			_health -= 10f;
 			
 			if(_health > 0)

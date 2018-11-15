@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
 	}
 
 	[SerializeField] protected GameObject effect_ = null;
+	[SerializeField] private AudioClip damageSfx_ = null;
 
 	protected Rigidbody2D _rigidbody = null;
 	protected Animator _animator = null;
@@ -77,6 +78,7 @@ public class Monster : MonoBehaviour
 	private void Dead()
 	{
 		_gameManager.SetMonsterKill();
+		SoundManager.instance.PlaySFX(damageSfx_);
 		Instantiate(effect_, this.transform.position, Quaternion.identity);
 		Destroy(this.gameObject);
 	}

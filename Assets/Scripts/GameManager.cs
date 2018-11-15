@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private GameObject[] monsterPrefabs = null;
 	[SerializeField] private Image playerHealthbar_ = null;
 	[SerializeField] private Text textScoreCount_ = null;
+	[SerializeField] private AudioClip backgroundMusic_ = null;
 	
 	private bool _isGameOver = false;
 	private Vector2 screenToWorldPoint = Vector2.zero;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 	{
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		screenToWorldPoint = cam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+		SoundManager.instance.PlayMusic(backgroundMusic_);
 		StartCoroutine(CreateMonster());
 	}
 

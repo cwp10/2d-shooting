@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect_: {fileID: 1233379759973182, guid: 2e2a45eedb9ca46fc961ec56d45598a7, type: 2}
+  damageSfx_: {fileID: 8300000, guid: 722031a7968fc48fab22ecfc4d4c76eb, type: 3}
   speed: 100
   maxHealth: 10
 --- !u!212 &212794779414844660
