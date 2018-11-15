@@ -45,9 +45,26 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
-		Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
 		_interval += Time.deltaTime;
+
+		MouseInput();
+		KeybordInput();
+	}
+
+    private void MouseInput()
+    {
+        if (Input.GetMouseButton(0))
+        {
+			Vector2 pos = _camera.ScreenToWorldPoint(Input.mousePosition);
+			
+			_rigidbody.position = Vector2.Lerp(_rigidbody.position, pos, speed * 0.02f * Time.deltaTime);
+			CreateBullet();
+        }
+    }
+
+	private void KeybordInput()
+	{
+		Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
 		if(Input.GetKey(KeyCode.Space))
 		{
